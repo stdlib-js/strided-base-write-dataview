@@ -43,20 +43,32 @@ limitations under the License.
 
 <!-- /.intro -->
 
+<section class="installation">
 
+## Installation
+
+```bash
+npm install @stdlib/strided-base-write-dataview
+```
+
+Alternatively,
+
+-   To load the package in a website via a `script` tag without installation and bundlers, use the [ES Module][es-module] available on the [`esm`][esm-url] branch (see [README][esm-readme]).
+-   If you are using Deno, visit the [`deno`][deno-url] branch (see [README][deno-readme] for usage intructions).
+-   For use in Observable, or in browser/node environments, use the [Universal Module Definition (UMD)][umd] build available on the [`umd`][umd-url] branch (see [README][umd-readme]).
+
+The [branches.md][branches-url] file summarizes the available branches and displays a diagram illustrating their relationships.
+
+To view installation and usage instructions specific to each branch build, be sure to explicitly navigate to the respective README files on each branch, as linked to above.
+
+</section>
 
 <section class="usage">
 
 ## Usage
 
 ```javascript
-import writeDataView from 'https://cdn.jsdelivr.net/gh/stdlib-js/strided-base-write-dataview@deno/mod.js';
-```
-
-You can also import the following named exports from the package:
-
-```javascript
-import { ndarray } from 'https://cdn.jsdelivr.net/gh/stdlib-js/strided-base-write-dataview@deno/mod.js';
+var writeDataView = require( '@stdlib/strided-base-write-dataview' );
 ```
 
 #### writeDataView( N, x, strideX, view, strideView, littleEndian )
@@ -64,8 +76,8 @@ import { ndarray } from 'https://cdn.jsdelivr.net/gh/stdlib-js/strided-base-writ
 Copies elements from an input strided array to elements in a strided [`DataView`][@stdlib/array/dataview].
 
 ```javascript
-import ArrayBuffer from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-buffer@deno/mod.js';
-import DataView from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-dataview@deno/mod.js';
+var ArrayBuffer = require( '@stdlib/array-buffer' );
+var DataView = require( '@stdlib/array-dataview' );
 
 var x = [ 1.0, 2.0, 3.0, 4.0 ];
 
@@ -91,14 +103,14 @@ The function accepts the following arguments:
 -   **x**: input strided array.
 -   **strideX**: index increment for `x`.
 -   **view**: output [`DataView`][@stdlib/array/dataview].
--   **strideView**: index increment (in bytes) for `y`.
+-   **strideView**: index increment (in bytes) for `view`.
 -   **littleEndian**: boolean indicating whether to store values in little-endian format.
 
-The `N` and stride parameters determine which elements in `x` and `view` are accessed at runtime. For example, to index every other value in `x` and to index the first `N` elements of `y` in reverse order,
+The `N` and stride parameters determine which elements in `x` and `view` are accessed at runtime. For example, to index every other value in `x` and to index the first `N` elements of `view` in reverse order,
 
 ```javascript
-import ArrayBuffer from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-buffer@deno/mod.js';
-import DataView from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-dataview@deno/mod.js';
+var ArrayBuffer = require( '@stdlib/array-buffer' );
+var DataView = require( '@stdlib/array-dataview' );
 
 var x = [ 1.0, 0.0, 2.0, 0.0, 3.0, 0.0, 4.0, 0.0 ];
 
@@ -121,9 +133,9 @@ v = view.getFloat64( 8, true );
 Note that indexing is relative to the first index. To introduce an offset, use typed array views.
 
 ```javascript
-import ArrayBuffer from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-buffer@deno/mod.js';
-import DataView from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-dataview@deno/mod.js';
-import Float32Array from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-float32@deno/mod.js';
+var ArrayBuffer = require( '@stdlib/array-buffer' );
+var DataView = require( '@stdlib/array-dataview' );
+var Float32Array = require( '@stdlib/array-float32' );
 
 // Initial array:
 var x0 = new Float32Array( [ 1.0, 2.0, 3.0, 4.0, 5.0, 6.0 ] );
@@ -153,8 +165,8 @@ v = view.getFloat32( 8, true );
 Copies elements from an input strided array to elements in a strided [`DataView`][@stdlib/array/dataview] using alternative indexing semantics.
 
 ```javascript
-import ArrayBuffer from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-buffer@deno/mod.js';
-import DataView from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-dataview@deno/mod.js';
+var ArrayBuffer = require( '@stdlib/array-buffer' );
+var DataView = require( '@stdlib/array-dataview' );
 
 var x = [ 1.0, 2.0, 3.0, 4.0 ];
 
@@ -179,8 +191,8 @@ The function accepts the following additional arguments:
 While typed array views mandate a view offset based on the underlying buffer, the offset parameters support indexing semantics based on starting indices. For example, to index every other value in `x` starting from the second value and to index the last `N` elements in `view` in reverse order,
 
 ```javascript
-import ArrayBuffer from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-buffer@deno/mod.js';
-import DataView from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-dataview@deno/mod.js';
+var ArrayBuffer = require( '@stdlib/array-buffer' );
+var DataView = require( '@stdlib/array-dataview' );
 
 var x = [ 0.0, 1.0, 0.0, 2.0, 0.0, 3.0, 0.0, 4.0 ];
 
@@ -217,14 +229,14 @@ v = view.getFloat64( 40, true );
 <!-- eslint no-undef: "error" -->
 
 ```javascript
-import ArrayBuffer from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-buffer@deno/mod.js';
-import DataView from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-dataview@deno/mod.js';
-import typedarray from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-typed@deno/mod.js';
-import bytesPerElement from 'https://cdn.jsdelivr.net/gh/stdlib-js/ndarray-base-bytes-per-element@deno/mod.js';
-import discreteUniform from 'https://cdn.jsdelivr.net/gh/stdlib-js/random-array-discrete-uniform@deno/mod.js';
-import IS_LITTLE_ENDIAN from 'https://cdn.jsdelivr.net/gh/stdlib-js/assert-is-little-endian@deno/mod.js';
-import logEach from 'https://cdn.jsdelivr.net/gh/stdlib-js/console-log-each@deno/mod.js';
-import writeDataView from 'https://cdn.jsdelivr.net/gh/stdlib-js/strided-base-write-dataview@deno/mod.js';
+var ArrayBuffer = require( '@stdlib/array-buffer' );
+var DataView = require( '@stdlib/array-dataview' );
+var typedarray = require( '@stdlib/array-typed' );
+var bytesPerElement = require( '@stdlib/ndarray-base-bytes-per-element' );
+var discreteUniform = require( '@stdlib/random-array-discrete-uniform' );
+var IS_LITTLE_ENDIAN = require( '@stdlib/assert-is-little-endian' );
+var logEach = require( '@stdlib/console-log-each' );
+var writeDataView = require( '@stdlib/strided-base-write-dataview' );
 
 // Specify the array data type:
 var dtype = 'float64';
@@ -272,7 +284,7 @@ logEach( '%d -> %d', x, y );
 
 ## Notice
 
-This package is part of [stdlib][stdlib], a standard library with an emphasis on numerical and scientific computing. The library provides a collection of robust, high performance libraries for mathematics, statistics, streams, utilities, and more.
+This package is part of [stdlib][stdlib], a standard library for JavaScript and Node.js, with an emphasis on numerical and scientific computing. The library provides a collection of robust, high performance libraries for mathematics, statistics, streams, utilities, and more.
 
 For more information on the project, filing bug reports and feature requests, and guidance on how to develop [stdlib][stdlib], see the main project [repository][stdlib].
 
@@ -335,7 +347,7 @@ Copyright &copy; 2016-2024. The Stdlib [Authors][stdlib-authors].
 
 [stdlib-license]: https://raw.githubusercontent.com/stdlib-js/strided-base-write-dataview/main/LICENSE
 
-[@stdlib/array/dataview]: https://github.com/stdlib-js/array-dataview/tree/deno
+[@stdlib/array/dataview]: https://github.com/stdlib-js/array-dataview
 
 </section>
 
