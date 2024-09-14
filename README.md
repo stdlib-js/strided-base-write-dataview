@@ -43,38 +43,32 @@ limitations under the License.
 
 <!-- /.intro -->
 
+<section class="installation">
 
+## Installation
+
+```bash
+npm install @stdlib/strided-base-write-dataview
+```
+
+Alternatively,
+
+-   To load the package in a website via a `script` tag without installation and bundlers, use the [ES Module][es-module] available on the [`esm`][esm-url] branch (see [README][esm-readme]).
+-   If you are using Deno, visit the [`deno`][deno-url] branch (see [README][deno-readme] for usage intructions).
+-   For use in Observable, or in browser/node environments, use the [Universal Module Definition (UMD)][umd] build available on the [`umd`][umd-url] branch (see [README][umd-readme]).
+
+The [branches.md][branches-url] file summarizes the available branches and displays a diagram illustrating their relationships.
+
+To view installation and usage instructions specific to each branch build, be sure to explicitly navigate to the respective README files on each branch, as linked to above.
+
+</section>
 
 <section class="usage">
 
 ## Usage
 
-To use in Observable,
-
 ```javascript
-writeDataView = require( 'https://cdn.jsdelivr.net/gh/stdlib-js/strided-base-write-dataview@umd/browser.js' )
-```
-
-To vendor stdlib functionality and avoid installing dependency trees for Node.js, you can use the UMD server build:
-
-```javascript
-var writeDataView = require( 'path/to/vendor/umd/strided-base-write-dataview/index.js' )
-```
-
-To include the bundle in a webpage,
-
-```html
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/strided-base-write-dataview@umd/browser.js"></script>
-```
-
-If no recognized module system is present, access bundle contents via the global scope:
-
-```html
-<script type="text/javascript">
-(function () {
-    window.writeDataView;
-})();
-</script>
+var writeDataView = require( '@stdlib/strided-base-write-dataview' );
 ```
 
 #### writeDataView( N, x, strideX, view, strideView, littleEndian )
@@ -109,10 +103,10 @@ The function accepts the following arguments:
 -   **x**: input strided array.
 -   **strideX**: index increment for `x`.
 -   **view**: output [`DataView`][@stdlib/array/dataview].
--   **strideView**: index increment (in bytes) for `y`.
+-   **strideView**: index increment (in bytes) for `view`.
 -   **littleEndian**: boolean indicating whether to store values in little-endian format.
 
-The `N` and stride parameters determine which elements in `x` and `view` are accessed at runtime. For example, to index every other value in `x` and to index the first `N` elements of `y` in reverse order,
+The `N` and stride parameters determine which elements in `x` and `view` are accessed at runtime. For example, to index every other value in `x` and to index the first `N` elements of `view` in reverse order,
 
 ```javascript
 var ArrayBuffer = require( '@stdlib/array-buffer' );
@@ -234,20 +228,15 @@ v = view.getFloat64( 40, true );
 
 <!-- eslint no-undef: "error" -->
 
-```html
-<!DOCTYPE html>
-<html lang="en">
-<body>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/array-buffer@umd/browser.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/array-dataview@umd/browser.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/array-typed@umd/browser.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/ndarray-base-bytes-per-element@umd/browser.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/random-array-discrete-uniform@umd/browser.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/assert-is-little-endian@umd/browser.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/console-log-each@umd/browser.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/strided-base-write-dataview@umd/browser.js"></script>
-<script type="text/javascript">
-(function () {
+```javascript
+var ArrayBuffer = require( '@stdlib/array-buffer' );
+var DataView = require( '@stdlib/array-dataview' );
+var typedarray = require( '@stdlib/array-typed' );
+var bytesPerElement = require( '@stdlib/ndarray-base-bytes-per-element' );
+var discreteUniform = require( '@stdlib/random-array-discrete-uniform' );
+var IS_LITTLE_ENDIAN = require( '@stdlib/assert-is-little-endian' );
+var logEach = require( '@stdlib/console-log-each' );
+var writeDataView = require( '@stdlib/strided-base-write-dataview' );
 
 // Specify the array data type:
 var dtype = 'float64';
@@ -272,11 +261,6 @@ var y = typedarray( view.buffer, dtype );
 
 // Print the results:
 logEach( '%d -> %d', x, y );
-
-})();
-</script>
-</body>
-</html>
 ```
 
 </section>
@@ -363,7 +347,7 @@ Copyright &copy; 2016-2024. The Stdlib [Authors][stdlib-authors].
 
 [stdlib-license]: https://raw.githubusercontent.com/stdlib-js/strided-base-write-dataview/main/LICENSE
 
-[@stdlib/array/dataview]: https://github.com/stdlib-js/array-dataview/tree/umd
+[@stdlib/array/dataview]: https://github.com/stdlib-js/array-dataview
 
 </section>
 
