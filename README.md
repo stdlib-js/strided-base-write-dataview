@@ -50,13 +50,13 @@ limitations under the License.
 ## Usage
 
 ```javascript
-import writeDataView from 'https://cdn.jsdelivr.net/gh/stdlib-js/strided-base-write-dataview@deno/mod.js';
+import writeDataView from 'https://cdn.jsdelivr.net/gh/stdlib-js/strided-base-write-dataview@v0.1.0-deno/mod.js';
 ```
 
 You can also import the following named exports from the package:
 
 ```javascript
-import { ndarray } from 'https://cdn.jsdelivr.net/gh/stdlib-js/strided-base-write-dataview@deno/mod.js';
+import { ndarray } from 'https://cdn.jsdelivr.net/gh/stdlib-js/strided-base-write-dataview@v0.1.0-deno/mod.js';
 ```
 
 #### writeDataView( N, x, strideX, view, strideView, littleEndian )
@@ -224,7 +224,7 @@ import bytesPerElement from 'https://cdn.jsdelivr.net/gh/stdlib-js/ndarray-base-
 import discreteUniform from 'https://cdn.jsdelivr.net/gh/stdlib-js/random-array-discrete-uniform@deno/mod.js';
 import IS_LITTLE_ENDIAN from 'https://cdn.jsdelivr.net/gh/stdlib-js/assert-is-little-endian@deno/mod.js';
 import logEach from 'https://cdn.jsdelivr.net/gh/stdlib-js/console-log-each@deno/mod.js';
-import writeDataView from 'https://cdn.jsdelivr.net/gh/stdlib-js/strided-base-write-dataview@deno/mod.js';
+import writeDataView from 'https://cdn.jsdelivr.net/gh/stdlib-js/strided-base-write-dataview@v0.1.0-deno/mod.js';
 
 // Specify the array data type:
 var dtype = 'float64';
