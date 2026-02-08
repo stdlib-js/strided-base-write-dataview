@@ -50,13 +50,18 @@ limitations under the License.
 ## Usage
 
 ```javascript
+import writeDataView from 'https://cdn.jsdelivr.net/gh/stdlib-js/strided-base-write-dataview@esm/index.mjs';
+```
+The previous example will load the latest bundled code from the esm branch. Alternatively, you may load a specific version by loading the file from one of the [tagged bundles](https://github.com/stdlib-js/strided-base-write-dataview/tags). For example,
+
+```javascript
 import writeDataView from 'https://cdn.jsdelivr.net/gh/stdlib-js/strided-base-write-dataview@v0.1.1-esm/index.mjs';
 ```
 
 You can also import the following named exports from the package:
 
 ```javascript
-import { ndarray } from 'https://cdn.jsdelivr.net/gh/stdlib-js/strided-base-write-dataview@v0.1.1-esm/index.mjs';
+import { ndarray } from 'https://cdn.jsdelivr.net/gh/stdlib-js/strided-base-write-dataview@esm/index.mjs';
 ```
 
 #### writeDataView( N, x, strideX, view, strideView, littleEndian )
@@ -229,7 +234,7 @@ import bytesPerElement from 'https://cdn.jsdelivr.net/gh/stdlib-js/ndarray-base-
 import discreteUniform from 'https://cdn.jsdelivr.net/gh/stdlib-js/random-array-discrete-uniform@esm/index.mjs';
 import IS_LITTLE_ENDIAN from 'https://cdn.jsdelivr.net/gh/stdlib-js/assert-is-little-endian@esm/index.mjs';
 import logEach from 'https://cdn.jsdelivr.net/gh/stdlib-js/console-log-each@esm/index.mjs';
-import writeDataView from 'https://cdn.jsdelivr.net/gh/stdlib-js/strided-base-write-dataview@v0.1.1-esm/index.mjs';
+import writeDataView from 'https://cdn.jsdelivr.net/gh/stdlib-js/strided-base-write-dataview@esm/index.mjs';
 
 // Specify the array data type:
 var dtype = 'float64';
